@@ -2,15 +2,15 @@ Yakuza (PS2) - port para PC
 ===========================
 
 O jogo NAO esta incluido. Precisas da tua propria copia do Yakuza para PS2 (versao USA, SLUS-21348) em
-imagem de disco (.iso).
+imagem de disco (.iso ou .iso.gz).
 
 1. Extrai esta pasta para onde quiseres.
 2. Abre Yakuza.exe.
-3. Na primeira vez escolhe a tua .iso. O caminho fica guardado em Yakuza.ini; da proxima vez o jogo abre direto.
+3. Na primeira vez escolhe a tua .iso ou .iso.gz, incluindo a edicao Restored ja corrigida. O caminho fica guardado em Yakuza.ini; da proxima vez o jogo abre direto.
    (Se moveres a .iso, o jogo volta a pedir-ta.)
 
 Opcoes no jogo: F2 (teclado) ou L3 (comando): frame rate 30/60, resolucao interna, aspecto, camara ao ombro, rato.
-F11: ecra inteiro / janela.
+Alt+Enter: alterna entre janela sem bordas e janela grande redimensionavel. A tecla F11 usa o modo original.
 
 Teclado: WASD andar, setas d-pad, Espaco/K = X, E/L = O, J = Quadrado, I/F = Triangulo, Shift = R1, Ctrl = L1,
 Z/C = L2/R2, Enter = Start, Tab = Select. Rato: esquerdo = Quadrado (bater), direito = O (agarrar),

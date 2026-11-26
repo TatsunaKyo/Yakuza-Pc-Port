@@ -12,7 +12,7 @@
 ![Based on](https://img.shields.io/badge/based%20on-PS2Recomp-8A2BE2)
 ![License](https://img.shields.io/badge/license-GPL--3.0-blue)
 
-### [⬇ Download the latest release](../../releases/latest)
+### [Windows build for this branch](../../actions/workflows/windows-iso-gz.yml)
 
 </div>
 
@@ -20,7 +20,7 @@
 
 > [!IMPORTANT]
 > The game is **not included**. You need **your own copy** of Yakuza for the PS2 (USA, `SLUS-21348`) as a disc
-> image (`.iso`).
+> image (`.iso` or `.iso.gz` on Windows).
 
 ## What is this?
 
@@ -40,12 +40,12 @@ resolutions and a sharp picture.
 
 ### Windows
 
-1. Download the ZIP from the [**latest release**](../../releases/latest) and extract it anywhere.
+1. Download the **Yakuza-Windows-ISO-GZ** artifact from a successful [Windows build](../../actions/workflows/windows-iso-gz.yml). Extract the game ZIP into a writable folder.
 2. Open **`Yakuza.exe`**.
-3. The first time, pick your Yakuza disc image (`.iso`). The game checks it is the right one and remembers it
+3. Pick your disc image (`.iso` or `.iso.gz`). You can select a prepatched Yakuza Restored image directly. The game checks the disc and remembers it
    (in `Yakuza.ini`): from then on, just open `Yakuza.exe`.
 
-If you move the `.iso`, the game asks for it again. Saves are in `memcard0.ps2`, options in `config\mods.ini`, and
+Windows imports gzip images once under `Discs`. Allow space for one expanded ISO. Drag another image onto `Yakuza.exe` or start with `--choose` to switch discs. **Alt+Enter** toggles the borderless desktop window and a maximized, resizable window. Set `window_layout=large` in `Yakuza.ini` for the framed window on startup. Saves are in `memcard0.ps2`, options in `config\mods.ini`, and
 each session writes `logs\play.log` (attach it when you report a problem).
 
 ### Requirements
@@ -87,12 +87,17 @@ put a `gamecontrollerdb.txt` ([SDL GameControllerDB](https://github.com/mdqinc/S
 | Key | In game |
 |---|---|
 | F2 | Options menu |
-| F11 | Fullscreen / window |
+| Alt+Enter (Windows fork) | Borderless desktop window / large framed window |
+| F11 | Original fullscreen / window |
 
 ## Known issues
 
 - Beta: the game can be played from the start, but not every chapter has been tested yet. Please report what you find
   with your `logs\play.log`.
+
+## Build this branch’s Windows package
+
+The workflow builds the Windows entry point with the .NET Framework compiler and combines it with the upstream V2.0.0 release using `tools/package_windows_gzip.py`. The entry point reads gzip with the release’s own `zlib1.dll` and starts its original runtime. The published repository currently omits the modified runtime sources needed to rebuild that executable.
 
 ## Build from source
 
